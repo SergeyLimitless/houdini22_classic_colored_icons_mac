@@ -4,70 +4,65 @@ Version 0.100 · © Serj Limitless · MIT License · unofficial, not affiliated 
 
 Brings back the classic, full-colour UI icons (viewport toolbars, spreadsheet, buttons) in
 Houdini 22's new UI on macOS — the same art Houdini 22 shows in its old-UI mode.
+Also includes my **Limitless 4** colour theme.
 
 ## How it works
 
-Houdini 22 still ships the classic art for ~385 UI icons in its own `SVGIcons.index`. Its new
-theme takes the new-style versions from `SVGIconsUI.index` and tints them grey. For each installed
-Houdini 22 build, the script makes a small overlay (~1.5 MB):
+Houdini 22 still ships the classic art for ~385 UI icons; its new theme replaces them with
+grey-tinted versions. The script builds a small add-on (~1.5 MB per Houdini build) that tells
+Houdini to use the classic ones again. Your Houdini installation is never modified, and no SideFX
+artwork is included in this download — everything is made from your own Houdini.
 
-- a copy of that build's `SVGIconsUI.index` without those icons, so Houdini draws the classic art in colour;
-- a copy of the stock pre-rendered `SVGIconsUI.cache` without their new-style bitmaps;
-- a Houdini package file that loads the overlay only for that exact build, with its own icon cache.
+Needs: macOS and Houdini 22 installed in the usual place (`/Applications/Houdini`).
 
-The Houdini installation is never modified. No SideFX artwork is included in this download;
-everything is built from your own install.
+## Install the icons
 
-## Requirements
+1. **Quit Houdini.**
+2. Open **Terminal**: press **Cmd + Space**, type `Terminal`, press **Return**.
+3. In Terminal, type `python3` followed by **one space** (don't press Return yet).
+4. **Drag the file `houdini22_classic_icons_mac.py`** from Finder into the Terminal window.
+   Its location appears after `python3 `.
+5. Type **one space**, then `--build`, and press **Return**.
 
-- macOS, Houdini 22 installed in `/Applications/Houdini/Houdini22.0.xxx`
-- `python3` (macOS offers to install it with the Command Line Tools on first use)
+   The line should look like this (your folder may differ):
 
-## Use
+       python3 /Users/you/Downloads/houdini22_classic_icons_mac/houdini22_classic_icons_mac.py --build
 
-Quit Houdini, then in Terminal, in this folder:
+6. Wait for the lines that end with `package houdini21_icons_for_houdini22_….json`, then start Houdini 22.
 
-```bash
-python3 houdini22_classic_icons_mac.py
-```
-Dry run: shows what it would do for every Houdini 22 build, writes nothing.
+If macOS asks to install "command line developer tools" at step 5, click **Install**, wait until it
+finishes, and repeat steps 3–5.
 
-```bash
-python3 houdini22_classic_icons_mac.py --build
-```
-Builds the overlays and package files. Start Houdini 22.
+**Just want to see what it would do first?** Do steps 3–4 and press **Return** without `--build`.
+That only prints a summary and changes nothing.
 
-`--h22 22.0.466` limits it to one build.
+## Remove the icons
 
-## Undo
+Same as installing, but type `--uninstall` instead of `--build` in step 5. Restart Houdini.
 
-```bash
-python3 houdini22_classic_icons_mac.py --uninstall
-```
-Or delete `~/Library/Preferences/houdini/22.0/packages/houdini21_icons_for_houdini22_<build>.json`
-to switch one build back to stock icons.
+## After a Houdini update
 
-## Files it writes
+Each Houdini 22 build needs its own add-on. After installing a new build, run the install steps again.
 
-```
-~/Library/Application Support/Houdini21IconsFor22/overlays/<build>/
-├── houdini/config/Icons/SVGIconsUI.index
-├── houdini/config/Icons/SVGIconsUI.cache (+ .serial)
-├── cache/            Houdini's icon cache for this overlay
-└── manifest.json
-~/Library/Preferences/houdini/22.0/packages/houdini21_icons_for_houdini22_<build>.json
-```
+## If you see "Cannot write to …/packages"
 
-## Notes
+Some plugin installers (e.g. Redshift) lock Houdini's packages folder. Fix it once: copy the
+`sudo chown …` line the script prints, paste it into Terminal, press **Return** and type your Mac
+password (nothing appears while typing — that's normal). Then run the install steps again.
 
-- After installing a new Houdini 22 build, run `--build` again (overlays are build-specific).
-- "Cannot write to …/packages": some plugin installers (e.g. Redshift) make that folder root-owned.
-  Fix it once with `sudo chown "$USER" ~/Library/Preferences/houdini/22.0/packages`.
-- About 150 icons have no classic version in Houdini 22; they keep the new style.
-- Bigger toolbar icons: the old-UI Preferences "Icon Size" setting (`general.ui.icon_size`) also works in the new UI.
-- Do not share the generated overlay files; share this script instead.
+## Limitless 4 theme
+
+1. In Finder, press **Cmd + Shift + G**, paste this and press **Return**:
+
+       ~/Library/Preferences/houdini/22.0/config/Themes
+
+   If it says the folder doesn't exist, open `~/Library/Preferences/houdini/22.0/config` instead and
+   create a folder named `Themes` there.
+2. Copy **`Limitless_4.theme.json`** into that folder.
+3. Restart Houdini and choose **Limitless 4** in Houdini's colour theme menu.
 
 ## Credits
 
 Idea based on [SalmeInMotion/houdini21-icons-for-houdini22](https://github.com/SalmeInMotion/houdini21-icons-for-houdini22)
-(MIT, Windows), which swaps in Houdini 21 artwork. This macOS version uses Houdini 22's own classic art instead.
+(MIT, Windows). This macOS version uses Houdini 22's own classic art instead of Houdini 21's.
+Please share this folder, not the files the script generates.

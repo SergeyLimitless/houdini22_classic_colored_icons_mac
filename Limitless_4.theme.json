@@ -1,0 +1,29 @@
+{
+    "name": "Limitless 4",
+    "theme": {
+        "base": [
+            89.88,
+            0.0,
+            24.0
+        ],
+        "primary": [
+            196.58,
+            7.0,
+            84.05
+        ],
+        "highlight": [
+            149.52,
+            33.82,
+            93.03
+        ],
+        "iconsUsePrimary": false,
+        "textAdjust": -5.0,
+        "buttonAdjust": -9.757771164021179,
+        "fieldAdjust": -20.896853885135137,
+        "paneDividerAdjust": 8.90988568722944,
+        "secondaryChromaScale": 0.0,
+        "iconTintChromaScale": 0.664379565746753,
+        "iconAccentChromaScale": 0.13718377976190407,
+        "category": "Custom"
+    }
+}
