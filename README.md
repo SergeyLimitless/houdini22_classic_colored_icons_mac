@@ -18,8 +18,8 @@ Needs: macOS and Houdini 22 installed in the usual place (`/Applications/Houdini
 ## Install the icons
 
 1. **Quit Houdini.**
-2. Open **Terminal**: press **Cmd + Space**, type `Terminal`, press **Return**.
-3. In Terminal, type `python3` followed by **one space** (don't press Return yet).
+2. Open **Terminal**.
+3. Type `python3` followed by **one space** (don't press Return yet).
 4. **Drag the file `houdini22_classic_icons_mac.py`** from Finder into the Terminal window.
    Its location appears after `python3 `.
 5. Type **one space**, then `--build`, and press **Return**.
