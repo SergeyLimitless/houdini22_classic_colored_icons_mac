@@ -1,6 +1,6 @@
 # Houdini 22 Classic Icons for macOS
 
-Version 0.100 · © Serj Limitless · MIT License · unofficial, not affiliated with SideFX
+Version 0.400 · © Serj Limitless · MIT License · unofficial, not affiliated with SideFX
 
 Brings back the classic, full-colour UI icons (viewport toolbars, spreadsheet, buttons) in
 Houdini 22's new UI on macOS — the same art Houdini 22 shows in its old-UI mode.
