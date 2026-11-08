@@ -51,8 +51,9 @@ Some plugin installers (e.g. Redshift) lock Houdini's packages folder. Fix it on
 password (nothing appears while typing — that's normal). Then run the install steps again.
 
 ## Limitless 4 theme
+I have included a custom theme making it feel even more like classic Houdini 21
 
-1. In Finder, press **Cmd + Shift + G**, paste this and press **Return**:
+1. Just place it in
 
        ~/Library/Preferences/houdini/22.0/config/Themes
 
